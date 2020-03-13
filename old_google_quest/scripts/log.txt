@@ -1,0 +1,134 @@
+CUDA_VISIBLE_DEVICES=1 python bert_test.py
+
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_ids (InputLayer)          [(None, 512)]        0
+__________________________________________________________________________________________________
+input_masks (InputLayer)        [(None, 512)]        0
+__________________________________________________________________________________________________
+input_segments (InputLayer)     [(None, 512)]        0
+__________________________________________________________________________________________________
+keras_layer (KerasLayer)        [(None, 768), (None, 109482241   input_ids[0][0]
+                                                                 input_masks[0][0]
+                                                                 input_segments[0][0]
+__________________________________________________________________________________________________
+dense_output (Dense)            (None, 30)           23070       keras_layer[0][0]
+==================================================================================================
+Total params: 109,505,311
+Trainable params: 109,505,310
+Non-trainable params: 1
+__________________________________________________________________________________________________
+None
+Train on 1000 samples
+Epoch 1/100
+2019-12-26 08:54:44.071737: W tensorflow/core/common_runtime/shape_refiner.cc:89] Function instantiation has undefined input shape at index: 1211 in the outer inference context.
+2019-12-26 08:54:45.962313: W tensorflow/core/common_runtime/shape_refiner.cc:89] Function instantiation has undefined input shape at index: 1211 in the outer inference context.
+2019-12-26 08:54:57.818644: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+ 900/1000 [==========================>...] - ETA: 8s - loss: 0.2933
+
+
+Every 0.5s: nvidia-smi                                                                                                                                                          Thu Dec 26 08:56:22 2019
+
+Thu Dec 26 08:56:22 2019
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 430.64       Driver Version: 430.64       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:02:00.0 Off |                  N/A |
+| 46%   77C    P2    82W / 250W |  10895MiB / 11178MiB |     10%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:03:00.0 Off |                  N/A |
+| 58%   86C    P2   195W / 250W |  10765MiB / 11178MiB |     98%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX 108...  Off  | 00000000:82:00.0 Off |                  N/A |
+| 88%   86C    P2   150W / 250W |   5930MiB / 11178MiB |     92%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX 108...  Off  | 00000000:83:00.0 Off |                  N/A |
+| 23%   38C    P8     9W / 250W |    805MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     25551      C   python                                     10885MiB |
+|    1     24838      C   python                                     10755MiB |
+|    2      8663      C   python                                       395MiB |
+|    2     28173      C   python                                      5525MiB |
+|    3     15501      C   python                                       795MiB |
++-----------------------------------------------------------------------------+
+
+
+
+
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_ids (InputLayer)          [(None, 64)]         0
+__________________________________________________________________________________________________
+input_masks (InputLayer)        [(None, 64)]         0
+__________________________________________________________________________________________________
+input_segments (InputLayer)     [(None, 64)]         0
+__________________________________________________________________________________________________
+keras_layer (KerasLayer)        [(None, 768), (None, 109482241   input_ids[0][0]
+                                                                 input_masks[0][0]
+                                                                 input_segments[0][0]
+__________________________________________________________________________________________________
+dense_output (Dense)            (None, 30)           23070       keras_layer[0][0]
+==================================================================================================
+Total params: 109,505,311
+Trainable params: 109,505,310
+Non-trainable params: 1
+__________________________________________________________________________________________________
+None
+Train on 1000 samples
+Epoch 1/100
+2019-12-26 08:58:01.458129: W tensorflow/core/common_runtime/shape_refiner.cc:89] Function instantiation has undefined input shape at index: 1211 in the outer inference context.
+2019-12-26 08:58:03.176888: W tensorflow/core/common_runtime/shape_refiner.cc:89] Function instantiation has undefined input shape at index: 1211 in the outer inference context.
+2019-12-26 08:58:14.005948: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+1000/1000 [==============================] - 29s 29ms/sample - loss: 0.3040
+Epoch 2/100
+ 280/1000 [=======>......................] - ETA: 6s - loss: 0.1366
+
+
+Every 0.5s: nvidia-smi                                                                                                                                                          Thu Dec 26 08:59:10 2019
+
+Thu Dec 26 08:59:10 2019
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 430.64       Driver Version: 430.64       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:02:00.0 Off |                  N/A |
+| 46%   78C    P2   277W / 250W |  10895MiB / 11178MiB |     36%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:03:00.0 Off |                  N/A |
+| 75%   86C    P2   222W / 250W |  10765MiB / 11178MiB |     93%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX 108...  Off  | 00000000:82:00.0 Off |                  N/A |
+| 88%   88C    P2   175W / 250W |   5930MiB / 11178MiB |     96%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX 108...  Off  | 00000000:83:00.0 Off |                  N/A |
+| 23%   39C    P8     9W / 250W |    805MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     25551      C   python                                     10885MiB |
+|    1     29332      C   python                                     10755MiB |
+|    2      8663      C   python                                       395MiB |
+|    2     28173      C   python                                      5525MiB |
+|    3     15501      C   python                                       795MiB |
++-----------------------------------------------------------------------------+
+
+
+
+It is faster but the Memory Usage is the same.
